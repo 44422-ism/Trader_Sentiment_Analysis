@@ -1,8 +1,7 @@
-#📊 Trader Sentiment Analysis 
+# 📊 Trader Sentiment Analysis 
 
 
-#📌 Project Overview
-
+## 📌 Project Overview
 
 This project is a data analysis and machine learning prototype that examines how market sentiment (Fear vs Greed) influences trader behavior and performance. The analysis is performed using historical trading data and sentiment indices, and the results are deployed as an interactive Streamlit web application.
 
