@@ -5,85 +5,73 @@
 
 
 This project is a data analysis and machine learning prototype that examines how market sentiment (Fear vs Greed) influences trader behavior and performance. The analysis is performed using historical trading data and sentiment indices, and the results are deployed as an interactive Streamlit web application.
-The app allows users to:
 
+
+The app allows users to:
 
 Upload trading and sentiment datasets
 
-
 Analyze trader performance across market conditions
-
 
 Visualize PnL distribution under Fear vs Greed
 
-
 Explore trading behavior and activity patterns
-
 
 View segmented insights on trader types
 
 
-
 ⚙️ Tech Stack
-Frontend (Dashboard)
 
+
+Frontend (Dashboard)
 
 Streamlit → Interactive web interface
 
-
 Python → Data handling and visualization
-
 
 Backend (Data Analysis & Modeling)
 
-
 Pandas → Data cleaning and transformation
-
 
 NumPy → Numerical operations
 
-
 Matplotlib & Seaborn → Data visualization
-
 
 Scikit-learn → Machine learning model (Random Forest)
 
 
-
 📂 Directory Structure
+
+
 app.py                # Main Streamlit dashboard  requirements.txt      # Python dependencies  README.md             # Project documentation  
+
 
 🚀 How to Run the Project
 
 
 Clone the repository:
 
-
 git clone https://github.com/44422-ism/Trader_Sentiment_Analysis.gitcd Trader_Sentiment_Analysis
 
 
 Install dependencies:
-
 
 pip install -r requirements.txt
 
 
 Run the Streamlit app:
 
-
 streamlit run app.py
+
 
 📊 Key Insights
 
 
 Traders are more active during Greed phases, indicating risk-taking behavior
 
-
 Increased activity does not guarantee higher profitability → evidence of overtrading
 
-
 Fear phases show more cautious and relatively stable trading patterns
-
 
 Behavioral trends vary significantly across sentiment conditions
 
@@ -94,12 +82,9 @@ Behavioral trends vary significantly across sentiment conditions
 
 Model accuracy is limited due to dataset size and features
 
-
 Market behavior is inherently unpredictable → limited predictive reliability
 
-
 Analysis is based on historical data and may not generalize to real-time markets
-
 
 Sentiment classification is simplified (Fear vs Greed only)
 
