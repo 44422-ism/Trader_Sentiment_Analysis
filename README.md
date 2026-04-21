@@ -81,9 +81,11 @@ Streamlit
 
 
 Clone the repository
-Install dependencies:    pip install -r requirements.txt
 
-Run the dashboard:    streamlit run app.py
-pip install -r requirements.txt
+
+Install dependencies:                pip install -r requirements.txt
+
+
+Run the dashboard:                   streamlit run app.py
 Run the dashboard:
 streamlit run app.py
