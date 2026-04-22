@@ -49,6 +49,7 @@ This project aims to answer:
 
   Trader_Sentiment_Analysis/
 │
+
 ├── app.py
 
 ├── fear_greed_index.csv
