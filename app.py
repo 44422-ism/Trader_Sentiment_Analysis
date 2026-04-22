@@ -7,12 +7,19 @@ import seaborn as sns
 st.set_page_config(page_title="Trader Sentiment Dashboard", layout="wide")
 
 st.title("📊 Trader Performance vs Market Sentiment")
-st.caption("Interactive analytics dashboard using trading data + Fear/Greed sentiment index")
+
+st.markdown("""
+### 📌 Project Objective
+This dashboard analyzes how **market sentiment (Fear vs Greed)** influences trader behavior, profitability, and risk patterns using historical trading data.
+
+It is designed as an **interactive behavioral finance analytics prototype**.
+""")
+
+st.caption("Built using Streamlit • Pandas • Matplotlib • Seaborn")
 
 # -------------------- SIDEBAR --------------------
 st.sidebar.header("📂 Data Source")
-
-st.sidebar.info("You can upload your own datasets or use the default project data.")
+st.sidebar.info("Upload your own datasets or use the default project data.")
 
 sentiment_file = st.sidebar.file_uploader("Sentiment CSV", type=["csv"])
 trades_file = st.sidebar.file_uploader("Trades CSV", type=["csv"])
@@ -39,7 +46,6 @@ except Exception as e:
 sentiment.columns = sentiment.columns.str.lower()
 trades.columns = trades.columns.str.lower()
 
-# Date conversion (safe handling)
 sentiment['date'] = pd.to_datetime(sentiment['date']).dt.date
 trades['timestamp'] = pd.to_datetime(trades['timestamp'], unit='ms')
 trades['date'] = trades['timestamp'].dt.date
@@ -60,7 +66,7 @@ df['sentiment'] = df['classification'].apply(
 df['is_long'] = df['side'].apply(lambda x: 1 if str(x).upper() == 'BUY' else 0)
 
 # -------------------- FILTERS --------------------
-st.sidebar.subheader("🔎 Filters")
+st.sidebar.markdown("### 🔎 Filters")
 
 sentiment_filter = st.sidebar.multiselect(
     "Select Sentiment",
@@ -70,6 +76,14 @@ sentiment_filter = st.sidebar.multiselect(
 
 df = df[df['sentiment'].isin(sentiment_filter)]
 
+# -------------------- KEY METRICS --------------------
+col1, col2, col3, col4 = st.columns(4)
+
+col1.metric("Total Trades", len(df))
+col2.metric("Unique Traders", df['account'].nunique())
+col3.metric("Avg PnL", round(df['closed pnl'].mean(), 2))
+col4.metric("Win Ratio", round((df['closed pnl'] > 0).mean() * 100, 2), "%")
+
 # -------------------- TABS --------------------
 tab1, tab2, tab3, tab4 = st.tabs([
     "📌 Overview",
@@ -78,14 +92,9 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "🧩 Segmentation"
 ])
 
-# -------------------- TAB 1: OVERVIEW --------------------
+# -------------------- TAB 1 --------------------
 with tab1:
     st.subheader("Dataset Overview")
-
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Total Trades", len(df))
-    col2.metric("Unique Traders", df['account'].nunique())
-    col3.metric("Avg PnL", round(df['closed pnl'].mean(), 2))
 
     st.dataframe(df.head(), use_container_width=True)
 
@@ -94,7 +103,7 @@ with tab1:
     ax.set_title("Sentiment Distribution")
     st.pyplot(fig)
 
-# -------------------- TAB 2: PNL ANALYSIS --------------------
+# -------------------- TAB 2 --------------------
 with tab2:
     st.subheader("PnL Distribution by Sentiment")
 
@@ -103,7 +112,7 @@ with tab2:
     ax.set_title("PnL vs Market Sentiment")
     st.pyplot(fig)
 
-# -------------------- TAB 3: BEHAVIOR --------------------
+# -------------------- TAB 3 --------------------
 with tab3:
     st.subheader("Trader Behavior Patterns")
 
@@ -114,10 +123,9 @@ with tab3:
     ax.set_title("Behavior under Market Sentiment")
     st.pyplot(fig)
 
-    st.write("Average Behavior Metrics")
     st.dataframe(behavior)
 
-# -------------------- TAB 4: SEGMENTATION --------------------
+# -------------------- TAB 4 --------------------
 with tab4:
     st.subheader("Trader Segmentation Analysis")
 
@@ -141,14 +149,17 @@ with tab4:
 
 # -------------------- INSIGHTS --------------------
 st.markdown("---")
-st.subheader("🧠 Key Insights")
+st.subheader("🧠 Automated Insights")
 
-st.markdown("""
-- Traders show higher activity during **Greed phases**
-- Increased activity does not guarantee higher profits → possible overtrading
-- Fear phases show more stable and cautious trading behavior
+fear_mean = df[df['sentiment'] == 'Fear']['closed pnl'].mean()
+greed_mean = df[df['sentiment'] == 'Greed']['closed pnl'].mean()
+
+st.markdown(f"""
+- Average PnL during **Fear**: {round(fear_mean, 2)}
+- Average PnL during **Greed**: {round(greed_mean, 2)}
+- Insight: {'Greed phases show higher risk-taking behavior' if greed_mean > fear_mean else 'Fear phases show higher profitability'}
 """)
 
 # -------------------- FOOTER --------------------
 st.markdown("---")
-st.caption("Built for financial behavior analysis using sentiment-driven trading data")
+st.caption("Behavioral finance analytics prototype • Educational use only")
