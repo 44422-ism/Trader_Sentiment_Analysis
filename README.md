@@ -44,25 +44,34 @@ This project aims to answer:
 - Fear phases lead to more stable trading behavior
 - Behavioral differences are statistically significant across sentiment regimes
 
-  
+
+## 📂 Project Structure
+
   Trader_Sentiment_Analysis/
 │
 ├── app.py
+
 ├── fear_greed_index.csv
+
 ├── historical_data.csv
+
 ├── Trader_Sentiment_Analysis.ipynb
+
 ├── README.md
+
 └── requirements.txt
 
 ---
-
 ## 🚀 How to Run
 
 
-git clone https://github.com/44422-ism/Trader_Sentiment_Analysis.git
-cd Trader_Sentiment_Analysis
-pip install -r requirements.txt
-streamlit run app.py
+* git clone https://github.com/44422-ism/Trader_Sentiment_Analysis.git
+
+* cd Trader_Sentiment_Analysis
+  
+* pip install -r requirements.txt
+  
+* streamlit run app.py
 
 
 📌 Limitations
@@ -95,5 +104,3 @@ This project was built as a data analytics and behavioral finance prototype to d
 
 This project is for educational and analytical purposes only and does not constitute financial advice.
 ---
-
-## 📂 Project Structure
