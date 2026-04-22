@@ -1,144 +1,99 @@
-# 📊 Trader Sentiment Analysis 
+# 📊 Trader Sentiment Analysis Dashboard
+
+## 🚀 Overview
+This project is an interactive analytics dashboard that explores how **market sentiment (Fear vs Greed)** influences trader behavior, profitability, and risk-taking patterns.
+
+It is designed as a **behavioral finance intelligence prototype** combining data analysis and machine learning concepts.
+
+---
+
+## 🎯 Problem Statement
+Financial traders often behave differently under varying market emotions.  
+This project aims to answer:
+
+- Do traders take more risk during Greed phases?
+- Does higher activity lead to higher profitability?
+- How does sentiment impact trading performance?
+
+---
+
+## 📊 Key Features
+
+- 📂 Upload or use default datasets
+- 📊 PnL analysis across market sentiment conditions
+- 📈 Trader behavior pattern analysis
+- 🧩 Trader segmentation (Frequent vs Infrequent)
+- 🧠 Automated insight generation
+- 📉 Visual analytics dashboard with interactive filters
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend:** Streamlit
+- **Data Processing:** Pandas, NumPy
+- **Visualization:** Matplotlib, Seaborn
+- **ML Concepts:** Behavioral segmentation, statistical grouping
+
+---
+
+## 🧠 Key Insights Discovered
+
+- Traders show higher activity during **Greed phases**
+- Increased activity does NOT guarantee higher profits
+- Fear phases lead to more stable trading behavior
+- Behavioral differences are statistically significant across sentiment regimes
+
+  
+  Trader_Sentiment_Analysis/
+│
+├── app.py
+├── fear_greed_index.csv
+├── historical_data.csv
+├── Trader_Sentiment_Analysis.ipynb
+├── README.md
+└── requirements.txt
+
+---
+
+## 🚀 How to Run
 
 
-## 📌 Project Overview
-
-This project is a data analysis and machine learning prototype that examines how market sentiment (Fear vs Greed) influences trader behavior and performance. The analysis is performed using historical trading data and sentiment indices, and the results are deployed as an interactive Streamlit web application.
-
-
-The app allows users to:
-
-1. Upload trading and sentiment datasets
-
-2. Analyze trader performance across market conditions
-
-3. Visualize PnL distribution under Fear vs Greed
-
-4. Explore trading behavior and activity patterns
-
-5. View segmented insights on trader types
-
-
-⚙️ Tech Stack
-
-
-Frontend (Dashboard)
-
-1. Streamlit → Interactive web interface
-
-2. Python → Data handling and visualization
-
-Backend (Data Analysis & Modeling)
-
-3. Pandas → Data cleaning and transformation
-
-4. NumPy → Numerical operations
-
-5. Matplotlib & Seaborn → Data visualization
-
-6. Scikit-learn → Machine learning model (Random Forest)
-
-
-📂 Directory Structure
-
-
-app.py                # Main Streamlit dashboard  requirements.txt      # Python dependencies  README.md             # Project documentation  
-
-
-🚀 How to Run the Project
-
-
-1. Clone the repository:
-
-git clone https://github.com/44422-ism/Trader_Sentiment_Analysis.gitcd Trader_Sentiment_Analysis
-
-
-2. Install dependencies:
-
+git clone https://github.com/44422-ism/Trader_Sentiment_Analysis.git
+cd Trader_Sentiment_Analysis
 pip install -r requirements.txt
-
-
-3. Run the Streamlit app:
-
 streamlit run app.py
 
 
-📊 Key Insights
+📌 Limitations
 
 
-* Traders are more active during Greed phases, indicating risk-taking behavior
+1. Dataset size is limited for deep ML modeling
 
-Increased activity does not guarantee higher profitability → evidence of overtrading
+2. Market behavior is inherently stochastic
 
-Fear phases show more cautious and relatively stable trading patterns
-
-Behavioral trends vary significantly across sentiment conditions
+3. Sentiment classification is simplified (Fear vs Greed only)
 
 
-
-🔬 Limitations (Current Version)
-
-
-1. Model accuracy is limited due to dataset size and features
-
-2. Market behavior is inherently unpredictable → limited predictive reliability
-
-3. Analysis is based on historical data and may not generalize to real-time markets
-
-4. Sentiment classification is simplified (Fear vs Greed only)
+🌱 Future Improvements
 
 
+1. Real-time sentiment API integration
 
-🌱 Future Scope
+2. Advanced predictive modeling (time-series forecasting)
 
+3. Portfolio risk scoring system
 
-1. Integration with real-time market sentiment APIs
-
-2. Advanced feature engineering (volatility, leverage, timing signals)
-
-3. Improved ML models and time-series validation
-
-4. Enhanced dashboard with filters and live analytics
-
-5. Deployment with continuous data updates
+4. Deployment as SaaS analytics tool
 
 
+📌 Author Note
 
-📦 Software Requirements
+This project was built as a data analytics and behavioral finance prototype to demonstrate end-to-end understanding of data pipelines, visualization, and insight generation.
 
+✨ Disclaimer
 
-1. Python 3.8+
+This project is for educational and analytical purposes only and does not constitute financial advice.
+---
 
-2. Streamlit
-
-3. Pandas
-
-4. NumPy
-
-5. Matplotlib
-
-6. Seaborn
-
-7. Scikit-learn
-
-
-📈 Business & Impact
-
-
-This project demonstrates how data-driven insights can help in:
-
-Understanding trader psychology under different market conditions
-
-Identifying inefficient trading patterns like overtrading
-
-Supporting better decision-making strategies
-
-Building scalable analytics tools for financial markets
-
-
-
-✨ This is a prototype project created for educational and analytical purposes, not for financial advice or real-world trading decisions.
-
-📌 About
-
-A data analysis and machine learning project that explores the relationship between market sentiment and trader performance, deployed as an interactive Streamlit dashboard.
+## 📂 Project Structure
